@@ -1,4 +1,4 @@
-# pick-random-cli [![Build Status](https://travis-ci.org/sindresorhus/pick-random-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/pick-random-cli)
+# pick-random-cli
 
 > Pick random items from a list
 
