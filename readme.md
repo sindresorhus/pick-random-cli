@@ -4,13 +4,11 @@
 
 Useful for making decisions, picking a winner, or anything else randomness can help you with.
 
-
 ## Install
 
 ```
 $ npm install --global pick-random-cli
 ```
-
 
 ## Usage
 
@@ -30,12 +28,6 @@ $ pick-random --help
     $ pick-random $(seq 54) --count=6
 ```
 
-
 ## Related
 
 - [pick-random](https://github.com/sindresorhus/pick-random) - API for this module
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

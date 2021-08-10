@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const getStdin = require('get-stdin');
-const pickRandom = require('pick-random');
+import process from 'node:process';
+import meow from 'meow';
+import getStdin from 'get-stdin';
+import pickRandom from 'pick-random';
 
 const cli = meow(`
 	Usage
@@ -16,13 +16,15 @@ const cli = meow(`
 
 	  $ pick-random yes no
 	  $ pick-random $(seq 54) --count=6
-`);
+`, {
+	importMeta: import.meta,
+});
 
 function init(items) {
 	console.log(pickRandom(items, cli.flags).join('\n'));
 }
 
-const input = cli.input;
+const {input} = cli;
 
 if (input.length === 0 && process.stdin.isTTY) {
 	console.error('Specify some items to pick from');
@@ -32,7 +34,8 @@ if (input.length === 0 && process.stdin.isTTY) {
 if (input.length > 0) {
 	init(input);
 } else {
-	getStdin().then(data => {
+	(async () => {
+		const data = await getStdin();
 		init(data.trim().split('\n'));
-	});
+	})();
 }
